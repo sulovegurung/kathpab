@@ -1,0 +1,46 @@
+<ion-content padding>
+    <ion-grid>
+            <img src="assets/imgs/plg.jpg" style="margin: 0 auto"  class="logo" />
+        <h1 id="head">School Management Software</h1>
+        <ion-row>
+
+            <ion-col col-12 col-md-4 col-lg-4 col-xl-4 offset-md-4 offset-lg-4 offset-xl-4 >
+                <div class="parent1" padding>
+
+                    <h2>PABSON</h2>
+                </div>
+
+                <div class="child1">
+                    <ion-list>
+
+                        <ion-item>
+                            <ion-label floating>Email</ion-label>
+                            <ion-input [(ngModel)]="userdetail.email" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label floating>Password</ion-label>
+                            <ion-input [(ngModel)]="userdetail.password" type="password"></ion-input>
+                        </ion-item>
+
+                    </ion-list>
+                </div>
+
+                <div class="parent2">
+
+                    <!-- <div class="child_2"> -->
+
+                    <div>
+                        <button  ion-button class="child2" color="twitter" small block (click)="login(userdetail)">login</button>
+                    </div>
+                    <div>
+                        <button ion-button class="child3" clear block (click)="onForgetPassword()">Forgot password ?</button>
+                    </div>
+
+                    <!-- </div>   -->
+
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
