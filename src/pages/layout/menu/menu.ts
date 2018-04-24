@@ -1,6 +1,7 @@
 import { PageInterface } from './menu';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 export interface PageInterface {
@@ -33,7 +34,9 @@ export class MenuPage {
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams) { }
+    public navParams: NavParams,
+    private afAuth: AngularFireAuth
+  ) { }
  
 
   openPage(page: PageInterface) {
@@ -65,6 +68,11 @@ export class MenuPage {
     if(this.nav.getActive() && this.nav.getActive().name === page.pageName) {
         return 'primary';
     }
+  }
+
+  logout() {
+
+     this.afAuth.auth.signOut();
   }
 
  
