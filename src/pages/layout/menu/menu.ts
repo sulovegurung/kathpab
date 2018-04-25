@@ -2,6 +2,8 @@ import { PageInterface } from './menu';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
+
 
 
 export interface PageInterface {
@@ -35,7 +37,8 @@ export class MenuPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private authService: AuthServiceProvider
   ) { }
  
 
@@ -71,8 +74,7 @@ export class MenuPage {
   }
 
   logout() {
-
-     this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut();
   }
 
  

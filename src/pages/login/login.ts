@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserDetail } from '../../Models/UserDetails/user-detail.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastService } from '../../providers/toast/toast.service';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 
 @IonicPage()
@@ -13,7 +14,7 @@ import { ToastService } from '../../providers/toast/toast.service';
 export class LoginPage {
   
   userdetail ={} as UserDetail;
-  loader: Loading;
+  // loader: Loading;
   
  /*  userdetail: UserDetail = {
     name: '',
@@ -29,8 +30,8 @@ export class LoginPage {
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
     private toast: ToastService,
-    private loading: LoadingController
-
+    // private loading: LoadingController,
+    private authService: AuthServiceProvider
     ) {  }
 
  /*  ionViewDidLoad() {
@@ -39,13 +40,17 @@ export class LoginPage {
 
 
   ionViewCanEnter() {
-  
     this.afAuth.authState.subscribe(user => {
       if(user) {
         this.navCtrl.setRoot('MenuPage');
       }
     })
   }
+
+/*   loginUser() {
+    this.authService.login();
+    this.navCtrl.setRoot('MenuPage');
+  } */
 
  /*  presentLoadingDefault() {
     this.loader = this.loading.create({
@@ -56,20 +61,17 @@ export class LoginPage {
 
      
 
-  async login(userdetail: UserDetail)  {
+  async login()  {
     try { 
-      const result = await this.afAuth.auth.signInWithEmailAndPassword(userdetail.email, userdetail.password);
-      if(result) {
-        this.toast.show(`Welcome to Home Page, ${userdetail.email} !`);
-        this.navCtrl.setRoot('MenuPage');
-      }
-    } 
-    // else {
-    //   this.toast.show(this.userdetail.error);
-    // }
+     await this.authService.login(this.userdetail).then(ref => {
+      this.toast.show(`Welcome to Home Page, ${this.userdetail.email} !`)
+      this.navCtrl.setRoot('MenuPage')
+      });
+    }
     catch(e) {
       // console.log('got an error ', error);
       console.error(e);
+      // this.toast.show(``);
     };
     // this.loader.dismiss();
     

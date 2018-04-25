@@ -13,10 +13,10 @@ export class HomePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+ 
   ) {
   }
-
 
   ionViewCanEnter() {
   

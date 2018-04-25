@@ -14,6 +14,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import { UserDataService } from '../providers/user-data/user-data.service';
 import { SchoolDataService } from '../providers/school-data/school-data.service';
 import { ToastService } from '../providers/toast/toast.service';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 // import { HomePage } from '../pages/home/home';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ToastService } from '../providers/toast/toast.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserDataService,
     SchoolDataService,
-    ToastService
+    ToastService,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

@@ -1,10 +1,10 @@
 <ion-content padding>
     <ion-grid>
-            <img src="assets/imgs/plg.jpg" style="margin: 0 auto"  class="logo" />
+        <img src="assets/imgs/plg.jpg" style="margin: 0 auto" class="logo" />
         <h1 id="head">School Record Management</h1>
         <ion-row>
 
-            <ion-col col-12 col-md-4 col-lg-4 col-xl-4 offset-md-4 offset-lg-4 offset-xl-4 >
+            <ion-col col-12 col-md-4 col-lg-4 col-xl-4 offset-md-4 offset-lg-4 offset-xl-4>
                 <div class="parent1" padding>
 
                     <h2>PABSON</h2>
@@ -15,7 +15,7 @@
 
                         <ion-item>
                             <ion-label floating>Email</ion-label>
-                            <ion-input [(ngModel)]="userdetail.email" type="text"></ion-input>
+                            <ion-input [(ngModel)]="userdetail.email" type="email"></ion-input>
                         </ion-item>
 
                         <ion-item>
@@ -27,16 +27,16 @@
                 </div>
 
                 <!-- <div class="parent2"> -->
-                    <div padding margin-top>
-                        
+                <div padding margin-top>
+
 
                     <!-- <div class="child_2"> -->
 
                     <div>
-                        <button  ion-button class="child2" color="twitter" small block (click)="login(userdetail)">login</button>
+                        <button full ion-button class="child2" color="twitter" small block (click)="login()">login</button>
                     </div>
                     <div>
-                        <button ion-button class="child3" clear block (click)="onForgetPassword()">Forgot password ?</button>
+                        <button full ion-button class="child3" clear block (click)="onForgetPassword()">Forgot password ?</button>
                     </div>
 
                     <!-- </div>   -->
